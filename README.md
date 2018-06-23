@@ -1,4 +1,4 @@
-##SteamToDiscordRPC
+## SteamToDiscordRPC
 
 Converts the Rich Presence information from some Steam games to Discord Rich Presence, written in Node.js.
 
