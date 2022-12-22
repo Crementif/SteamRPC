@@ -1,6 +1,6 @@
 // Import configuration
-exports.appID = 252950;
-exports.title = "Rocket League";
+export const appID = 252950;
+export const title = "Rocket League";
 
 function getMapAssetKey(normalMapString) {
     if (normalMapString.includes("(")) return "map_"+normalMapString.replace(" ", "").split("(")[0].trim().toLowerCase()+normalMapString.replace(" ", "").split("(")[1].split(")")[0].toLowerCase();
@@ -8,8 +8,10 @@ function getMapAssetKey(normalMapString) {
 }
 
 // Import functions
-exports.translateSteamPresence = (steamRichPresence) => {
-    discordRichPresence = {};
+
+// note: Rocket League stopped providing rich presence information on Steam a while ago so this profile doesn't work anymore.
+export function translateSteamPresence(steamRichPresence) {
+    let discordRichPresence = {};
     discordRichPresence.details = "playing Rocket League";
     if (steamRichPresence.gamedata === "Menu") {
         discordRichPresence.state = "in Main Menu";
