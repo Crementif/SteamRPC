@@ -134,6 +134,11 @@ async function pollSteamPresence(steamUserId, profiles) {
     renderWindow();
 }
 
+process.on('uncaughtException', err => {
+  console.log(`Uncaught Exception: ${err.message}`)
+  process.exit(1)
+})
+
 // =================================================================
 // Start each component
 
