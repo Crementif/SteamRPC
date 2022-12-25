@@ -167,9 +167,9 @@ export function translateSteamPresence(steamRichPresence) {
         discordRichPresence.largeImageText = "Sariff Bay";
         discordRichPresence.largeImageKey = "sariffbay"
     }
-    if (steamRichPresence.toLowerCase().includes("al mazrah")) {
-        discordRichPresence.state = "Al Mazrah";
-        discordRichPresence.largeImageText = "Al Mazrah";
+    if (steamRichPresence.toLowerCase().includes("al-mazrah")) {
+        discordRichPresence.state = "Al-Mazrah";
+        discordRichPresence.largeImageText = "Al-Mazrah";
         discordRichPresence.largeImageKey = "almazrah"
     }
     return discordRichPresence;
