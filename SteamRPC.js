@@ -19,7 +19,7 @@ const steamWebKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
 // Advanced Configuration Settings
 const pollRate = 20*1000; // Poll Steam Rich Presence every n seconds. You should keep this at or above 20 seconds.
-const discordClientId = "433731243516100629"; // Keep this id unless you want to supply your own application id.
+const discordClientId = "1056591321760026644"; // Keep this id unless you want to supply your own application id.
 
 // =================================================================
 // Initialize Status Variables
