@@ -5,7 +5,7 @@ Installation:
 2. clone the repo
 3. cd into it
 4. run `npm i`
-5. change your profile link in `SteamRPC.js` and folder path in `RUN.bat` and in a shortcut
+5. change your profile link in `SteamRPC.js` and folder path in `RUN.bat` and in the shortcut
 6. WIN+R and type `shell:startup`
 7. throw a shortcut here
 8. test
