@@ -107,22 +107,25 @@ async function pollSteamPresence(steamUserId, profiles) {
     let res = await fetch(`https://steamcommunity.com/miniprofile/${steamUserId.getSteam3RenderedID().substring(5, 5+9)}/json?appid=undefined`, {headers: {"X-Requested-With": "XMLHttpRequest"}});
     if (res.ok) {
         steamStatus = "connected";
+        gameStatus = "";
         let resJson = await res.json();
-        gameStatus = resJson.in_game.name + " (not supported)";
-        if (resJson.in_game?.logo && resJson.in_game?.rich_presence) {
-            let curr_appid = resJson.in_game.logo.split("/apps/")[1].split("/")[0];
-            let curr_rpc = resJson.in_game.rich_presence;
-            debugLine = "Current Steam RPC Status: " + resJson.in_game.rich_presence;
-            if (profiles.hasOwnProperty(curr_appid)) {
-                let profile = profiles[curr_appid];
-                try {
-                    gameStatus = profile.title;
-                    let translatedDiscordRPC = profile.translateSteamPresence(curr_rpc);
-                    if (typeof translatedDiscordRPC !== "object") throw `Profile returned '${typeof translatedDiscordRPC}' instead of an object.`;
-                    discordRPCClient.user?.setActivity(translatedDiscordRPC);
-                }
-                catch (codeErr) {
-                    throw new Error(`A code error has occured in the game profile for '${profile.title}'!`, {cause: codeErr});
+        if (resJson.in_game) {
+            gameStatus = `${resJson.in_game.name} (not supported)`;
+            if (resJson.in_game?.logo && resJson.in_game?.rich_presence) {
+                let curr_appid = resJson.in_game.logo.split("/apps/")[1].split("/")[0];
+                let curr_rpc = resJson.in_game.rich_presence;
+                debugLine = "Current Steam RPC Status: " + resJson.in_game.rich_presence;
+                if (profiles.hasOwnProperty(curr_appid)) {
+                    let profile = profiles[curr_appid];
+                    try {
+                        gameStatus = profile.title;
+                        let translatedDiscordRPC = profile.translateSteamPresence(curr_rpc);
+                        if (typeof translatedDiscordRPC !== "object") throw `Profile returned '${typeof translatedDiscordRPC}' instead of an object.`;
+                        discordRPCClient.user?.setActivity(translatedDiscordRPC);
+                    }
+                    catch (codeErr) {
+                        throw new Error(`A code error has occured in the game profile for '${profile.title}'!`, {cause: codeErr});
+                    }
                 }
             }
         }
