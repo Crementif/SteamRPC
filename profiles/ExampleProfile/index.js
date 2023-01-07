@@ -3,8 +3,8 @@ export const appID = 252950;
 export const title = "Rocket League";
 
 function getMapAssetKey(normalMapString) {
-    if (normalMapString.includes("(")) return "map_"+normalMapString.replace(" ", "").split("(")[0].trim().toLowerCase()+normalMapString.replace(" ", "").split("(")[1].split(")")[0].toLowerCase();
-    else return "map_"+normalMapString.replace(" ", "").toLowerCase();
+    if (normalMapString.includes("(")) return "rl_map_"+normalMapString.replace(" ", "").split("(")[0].trim().toLowerCase()+normalMapString.replace(" ", "").split("(")[1].split(")")[0].toLowerCase();
+    else return "rl_map_"+normalMapString.replace(" ", "").toLowerCase();
 }
 
 // Import functions
@@ -15,7 +15,7 @@ export function translateSteamPresence(steamRichPresence) {
     discordRichPresence.details = "playing Rocket League";
     if (steamRichPresence.gamedata === "Menu") {
         discordRichPresence.state = "in Main Menu";
-        discordRichPresence.largeImageKey = "rl-default";
+        discordRichPresence.largeImageKey = "rl_logo";
         discordRichPresence.largeImageText = "Main Menu";
     }
     if (steamRichPresence.status.toLowerCase().includes(" in ")) {
@@ -23,19 +23,19 @@ export function translateSteamPresence(steamRichPresence) {
         discordRichPresence.largeImageText = steamRichPresence.status.substr(steamRichPresence.status.indexOf(" in ")+4);
     }
     if (steamRichPresence.status.toLowerCase().includes("solo ")) {
-        discordRichPresence.smallImageKey = "solo";
+        discordRichPresence.smallImageKey = "rl_solo";
         discordRichPresence.smallImageText = "Solo";
     }
     if (steamRichPresence.status.toLowerCase().includes("doubles ")) {
-        discordRichPresence.smallImageKey = "doubles";
+        discordRichPresence.smallImageKey = "rl_doubles";
         discordRichPresence.smallImageText = "Doubles";
     }
     if (steamRichPresence.status.toLowerCase().includes("standard ")) {
-        discordRichPresence.smallImageKey = "standard";
+        discordRichPresence.smallImageKey = "rl_standard";
         discordRichPresence.smallImageText = "Standard";
     }
     if (steamRichPresence.status.toLowerCase().includes("chaos ")) {
-        discordRichPresence.smallImageKey = "chaos";
+        discordRichPresence.smallImageKey = "rl_chaos";
         discordRichPresence.smallImageText = "Chaos";
     }
     if (steamRichPresence.status.toLowerCase().includes("training")) discordRichPresence.state = "Training";
