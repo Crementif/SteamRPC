@@ -80,7 +80,7 @@ async function getSteamUserId() {
 }
 
 async function updateResources(folder, appID) {
-    let res = await fetch(`https://raw.githubusercontent.com/angelolz1/SteamRPC/mw2/profiles/${folder}/resources.json`);
+    let res = await fetch(`https://raw.githubusercontent.com/Crementif/SteamRPC/master/profiles/${folder}/resources.json`);
     if (res.ok) {
         let resJson = await res.json();
         fs.writeFileSync(`./profiles/${folder}/resources.json`, JSON.stringify(resJson));
