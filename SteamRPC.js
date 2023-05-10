@@ -1,4 +1,5 @@
 import { readdir } from "node:fs/promises";
+import fs from 'fs';
 
 import DiscordRPC from "@xhayper/discord-rpc";
 import SteamID from "steamid";
@@ -78,6 +79,15 @@ async function getSteamUserId() {
     }
 }
 
+async function updateResources(folder, appID) {
+    let res = await fetch(`https://raw.githubusercontent.com/angelolz1/SteamRPC/mw2/profiles/${folder}/resources.json`);
+    if (res.ok) {
+        let resJson = await res.json();
+        resources = resJson;
+        fs.writeFileSync(`./profiles/${folder}/resources.json`, resJson);
+    }
+}
+
 async function loadProfiles() {
     let profiles = {};
 
@@ -88,8 +98,9 @@ async function loadProfiles() {
             if (typeof profile.title != "string") throw "Exported 'title' couldn't be found or isn't a valid string type!";
             if (typeof profile.appID != "number") throw "Exported 'appID' couldn't be found or isn't a valid number type!";
             if (typeof profile.translateSteamPresence != "function") throw "Exported 'translateSteamPresence' function couldn't be found or isn't a valid function type!";
-            
             if (profiles.hasOwnProperty(profile.appID)) throw `Found two profiles that export the same appID ${profile.appID}! Make sure to change the appID variable in each profile!`;
+
+            updateResources(folder, profile.appID);
             profiles[profile.appID] = profile;
         }
         catch (err) {
