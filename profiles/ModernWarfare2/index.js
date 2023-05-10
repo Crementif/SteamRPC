@@ -38,9 +38,5 @@ export function translateSteamPresence(steamRichPresence) {
             }
         }
 
-        else {
-            discordRichPresence.state = "no match";
-        }
-
         return discordRichPresence;
 }

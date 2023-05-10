@@ -65,7 +65,7 @@ function renderWindow() {
 
 // =================================================================
 // SteamRPC Logic
- 
+
 async function getSteamUserId() {
     if (steamProfileURL.startsWith("https://steamcommunity.com/id/")) {
         let res = await fetch(`https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?key=${steamWebKey}&vanityurl=${steamProfileURL.split("id/")[1].split("/")[0]}`);
@@ -83,8 +83,7 @@ async function updateResources(folder, appID) {
     let res = await fetch(`https://raw.githubusercontent.com/angelolz1/SteamRPC/mw2/profiles/${folder}/resources.json`);
     if (res.ok) {
         let resJson = await res.json();
-        resources = resJson;
-        fs.writeFileSync(`./profiles/${folder}/resources.json`, resJson);
+        fs.writeFileSync(`./profiles/${folder}/resources.json`, JSON.stringify(resJson));
     }
 }
 
