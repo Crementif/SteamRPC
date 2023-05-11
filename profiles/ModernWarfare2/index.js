@@ -23,7 +23,9 @@ export function translateSteamPresence(steamRichPresence) {
         discordRichPresence.largeImageKey = resources.cover;
 
         let match = steamRichPresence.match(playingRegex);
-        if(match) {
+        if(match && match.length > 2) {
+            discordRichPresence.state = `${match[1]} in ${match[2]}`;
+            
             let mode = resources.modes.find(e => e.name === match[1]);
             let map = resources.maps.find(e => e.name === match[2]);
 
