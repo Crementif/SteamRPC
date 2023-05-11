@@ -16,6 +16,7 @@ This allows you to not clutter your gaming PC with additional processes.
 
 ### Currently supported games:
 - ~~Rocket League~~ (game stopped providing Rich Presence information which broke this integration)
+- Call of Duty: Modern Warfare II | Warzone 2.0
 
 ### Requirements
  - [Node.js](https://nodejs.org)

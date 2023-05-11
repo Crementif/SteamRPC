@@ -12,7 +12,7 @@ export function translateSteamPresence(steamRichPresence) {
         let dir = dirname(fileURLToPath(import.meta.url));
         let discordRichPresence = {};
         let resources = null;
-        discordRichPresence.details = "playing Modern Warfare II | Warzone 2.0";
+        discordRichPresence.details = "Playing Modern Warfare II | Warzone 2.0";
         discordRichPresence.state = steamRichPresence;
 
         if(!fs.existsSync(dir + '/resources.json')) {

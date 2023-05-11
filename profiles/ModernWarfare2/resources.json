@@ -1,204 +1,220 @@
 {
-    "maps": [
-        {
-            "name": "Al Bagra Fortress",
-            "imageURL": "https://i.imgur.com/z2XHEyk.png"
-        },
-        {
-            "name": "Alboran Hatchery",
-            "imageURL": "https://i.imgur.com/miD5FGf.png"
-        },
-        {
-            "name": "Black Gold",
-            "imageURL": "https://i.imgur.com/x63O2oT.png"
-        },
-        {
-            "name": "Breenbergh Hotel",
-            "imageURL": "https://i.imgur.com/pyY1mPt.png"
-        },
-        {
-            "name": "Crown Raceway",
-            "imageURL": "https://i.imgur.com/fuTaXLR.png"
-        },
-        {
-            "name": "Dome",
-            "imageURL": "https://i.imgur.com/19AoTZW.png"
-        },
-        {
-            "name": "El Asilo",
-            "imageURL": "https://i.imgur.com/u8MVgoA.png"
-        },
-        {
-            "name": "Embassy",
-            "imageURL": "https://i.imgur.com/sPbZY2V.png"
-        },
-        {
-            "name": "Farm 18",
-            "imageURL": "https://i.imgur.com/pY5hO1b.png"
-        },
-        {
-            "name": "Himmelmatt Expo",
-            "imageURL": "https://i.imgur.com/5PT38nG.png"
-        },
-        {
-            "name": "Mercado Las Almas",
-            "imageURL": "https://i.imgur.com/ORnzSf6.png"
-        },
-        {
-            "name": "Pelayo's Lighthouse",
-            "imageURL": "https://i.imgur.com/uRldWiY.png"
-        },
-        {
-            "name": "Santa Sena Border Crossing",
-            "imageURL": "https://i.imgur.com/TrajKX9.png"
-        },
-        {
-            "name": "Shipment",
-            "imageURL": "https://i.imgur.com/twG0lHh.png"
-        },
-        {
-            "name": "Shoot House",
-            "imageURL": "https://i.imgur.com/s7s8cg9.png"
-        },
-        {
-            "name": "Taraq",
-            "imageURL": "https://i.imgur.com/P5lsQRq.png"
-        },
-        {
-            "name": "Valderas Museum",
-            "imageURL": "https://i.imgur.com/nD9xee3.png"
-        },
-        {
-            "name": "Zarqwa Hydroelectric",
-            "imageURL": "https://i.imgur.com/Q2IrFXp.png"
-        },
-        {
-            "name": "Exhibit",
-            "imageURL": "https://i.imgur.com/OpqtGLi.png"
-        },
-        {
-            "name": "Alley",
-            "imageURL": "https://i.imgur.com/S8iSUah.png"
-        },
-        {
-            "name": "Blacksite",
-            "imageURL": "https://i.imgur.com/72yiLEn.png"
-        },
-        {
-            "name": "Al Malik International",
-            "imageURL": "https://i.imgur.com/NcTVS9O.png"
-        },
-        {
-            "name": "Guijarro",
-            "imageURL": "https://i.imgur.com/zHx5fgo.png"
-        },
-        {
-            "name": "Rohan Oil",
-            "imageURL": "https://i.imgur.com/w6YRwat.png"
-        },
-        {
-            "name": "Sa'id",
-            "imageURL": "https://i.imgur.com/W0ljCg8.png"
-        },
-        {
-            "name": "Santa Seña",
-            "imageURL": "https://i.imgur.com/D9wSuuB.png"
-        },
-        {
-            "name": "Sariff Bay",
-            "imageURL": "https://i.imgur.com/BjvLiEF.png"
-        },
-        {
-            "name": "Sattiq Cave Complex",
-            "imageURL": "https://i.imgur.com/KzHR1hQ.png"
-        },
-        {
-            "name": "Zaya Observatory",
-            "imageURL": "https://i.imgur.com/Ly996AO.png"
-        }
-    ],
-    "modes": [
-        {
-            "name": "All or Nothing",
-            "imageURL": "https://i.imgur.com/xnUSRFO.png"
-        },
-        {
-            "name": "Bounty",
-            "imageURL": "https://i.imgur.com/PlncxGm.png"
-        },
-        {
-            "name": "Control",
-            "imageURL": "https://i.imgur.com/u3VDZ05.png"
-        },
-        {
-            "name": "Cyber Attack",
-            "imageURL": "https://i.imgur.com/oKJRGrI.png"
-        },
-        {
-            "name": "Domination",
-            "imageURL": "https://i.imgur.com/dgcjZCL.png"
-        },
-        {
-            "name": "Drop Zone",
-            "imageURL": "https://i.imgur.com/VC7guDM.png"
-        },
-        {
-            "name": "Grind",
-            "imageURL": "https://i.imgur.com/RkV1Fr6.png"
-        },
-        {
-            "name": "Ground War",
-            "imageURL": "https://i.imgur.com/ZtG3hhX.png"
-        },
-        {
-            "name": "Gun Game",
-            "imageURL": "https://i.imgur.com/yTkbKxL.png"
-        },
-        {
-            "name": "Hardpoint",
-            "imageURL": "https://i.imgur.com/89Kk9Q9.png"
-        },
-        {
-            "name": "Headquarters",
-            "imageURL": "https://i.imgur.com/QYrjc5y.png"
-        },
-        {
-            "name": "Infected",
-            "imageURL": "https://i.imgur.com/0G1nQaX.png"
-        },
-        {
-            "name": "Invasion",
-            "imageURL": "https://i.imgur.com/aivO24B.png"
-        },
-        {
-            "name": "Kill Confirmed",
-            "imageURL": "https://i.imgur.com/W5f31nz.png"
-        },
-        {
-            "name": "Knock Out",
-            "imageURL": "https://i.imgur.com/1bI39no.png"
-        },
-        {
-            "name": "One in the Chamber",
-            "imageURL": "https://i.imgur.com/tAxwe4T.png"
-        },
-        {
-            "name": "Prisoner Rescue",
-            "imageURL": "https://i.imgur.com/uP9mnQd.png"
-        },
-        {
-            "name": "Ranked Play",
-            "imageURL": "https://i.imgur.com/7aVMq5i.png"
-        },
-        {
-            "name": "Search and Destroy",
-            "imageURL": "https://i.imgur.com/5XaiMtR.png"
-        },
-        {
-            "name": "Team Deathmatch",
-            "imageURL": "https://i.imgur.com/49IH4f2.png"
-        }
-    ],
-    "cover": "https://i.imgur.com/wnTF07B.jpg",
-    "logo": "https://i.imgur.com/V7VjScO.png"
+  "maps": [
+    {
+      "name": "Al Bagra Fortress",
+      "imageURL": "https://i.imgur.com/z2XHEyk.png"
+    },
+    {
+      "name": "Alboran Hatchery",
+      "imageURL": "https://i.imgur.com/miD5FGf.png"
+    },
+    {
+      "name": "Black Gold",
+      "imageURL": "https://i.imgur.com/x63O2oT.png"
+    },
+    {
+      "name": "Breenbergh Hotel",
+      "imageURL": "https://i.imgur.com/pyY1mPt.png"
+    },
+    {
+      "name": "Crown Raceway",
+      "imageURL": "https://i.imgur.com/fuTaXLR.png"
+    },
+    {
+      "name": "Dome",
+      "imageURL": "https://i.imgur.com/19AoTZW.png"
+    },
+    {
+      "name": "El Asilo",
+      "imageURL": "https://i.imgur.com/u8MVgoA.png"
+    },
+    {
+      "name": "Embassy",
+      "imageURL": "https://i.imgur.com/sPbZY2V.png"
+    },
+    {
+      "name": "Farm 18",
+      "imageURL": "https://i.imgur.com/pY5hO1b.png"
+    },
+    {
+      "name": "Himmelmatt Expo",
+      "imageURL": "https://i.imgur.com/5PT38nG.png"
+    },
+    {
+      "name": "Mercado Las Almas",
+      "imageURL": "https://i.imgur.com/ORnzSf6.png"
+    },
+    {
+      "name": "Pelayo's Lighthouse",
+      "imageURL": "https://i.imgur.com/uRldWiY.png"
+    },
+    {
+      "name": "Santa Sena Border Crossing",
+      "imageURL": "https://i.imgur.com/TrajKX9.png"
+    },
+    {
+      "name": "Shipment",
+      "imageURL": "https://i.imgur.com/twG0lHh.png"
+    },
+    {
+      "name": "Shoot House",
+      "imageURL": "https://i.imgur.com/s7s8cg9.png"
+    },
+    {
+      "name": "Taraq",
+      "imageURL": "https://i.imgur.com/P5lsQRq.png"
+    },
+    {
+      "name": "Valderas Museum",
+      "imageURL": "https://i.imgur.com/nD9xee3.png"
+    },
+    {
+      "name": "Zarqwa Hydroelectric",
+      "imageURL": "https://i.imgur.com/Q2IrFXp.png"
+    },
+    {
+      "name": "Exhibit",
+      "imageURL": "https://i.imgur.com/OpqtGLi.png"
+    },
+    {
+      "name": "Alley",
+      "imageURL": "https://i.imgur.com/S8iSUah.png"
+    },
+    {
+      "name": "Blacksite",
+      "imageURL": "https://i.imgur.com/72yiLEn.png"
+    },
+    {
+      "name": "Al Malik International",
+      "imageURL": "https://i.imgur.com/NcTVS9O.png"
+    },
+    {
+      "name": "Guijarro",
+      "imageURL": "https://i.imgur.com/zHx5fgo.png"
+    },
+    {
+      "name": "Rohan Oil",
+      "imageURL": "https://i.imgur.com/w6YRwat.png"
+    },
+    {
+      "name": "Sa'id",
+      "imageURL": "https://i.imgur.com/W0ljCg8.png"
+    },
+    {
+      "name": "Santa Seña",
+      "imageURL": "https://i.imgur.com/D9wSuuB.png"
+    },
+    {
+      "name": "Sariff Bay",
+      "imageURL": "https://i.imgur.com/BjvLiEF.png"
+    },
+    {
+      "name": "Sattiq Cave Complex",
+      "imageURL": "https://i.imgur.com/KzHR1hQ.png"
+    },
+    {
+      "name": "Zaya Observatory",
+      "imageURL": "https://i.imgur.com/Ly996AO.png"
+    },
+    {
+      "name": "Al Mazrah",
+      "imageURL": "https://i.imgur.com/FUh6tLW.png"
+    },
+    {
+      "name": "Ashika Island",
+      "imageURL": "https://i.imgur.com/8Lg58mx.png"
+    },
+    {
+      "name": "Rebirth Island",
+      "imageURL": "https://i.imgur.com/pABlB6S.png"
+    }
+  ],
+  "modes": [
+    {
+      "name": "All or Nothing",
+      "imageURL": "https://i.imgur.com/xnUSRFO.png"
+    },
+    {
+      "name": "Bounty",
+      "imageURL": "https://i.imgur.com/PlncxGm.png"
+    },
+    {
+      "name": "Control",
+      "imageURL": "https://i.imgur.com/u3VDZ05.png"
+    },
+    {
+      "name": "Cyber Attack",
+      "imageURL": "https://i.imgur.com/oKJRGrI.png"
+    },
+    {
+      "name": "Domination",
+      "imageURL": "https://i.imgur.com/dgcjZCL.png"
+    },
+    {
+      "name": "Drop Zone",
+      "imageURL": "https://i.imgur.com/VC7guDM.png"
+    },
+    {
+      "name": "Grind",
+      "imageURL": "https://i.imgur.com/RkV1Fr6.png"
+    },
+    {
+      "name": "Ground War",
+      "imageURL": "https://i.imgur.com/ZtG3hhX.png"
+    },
+    {
+      "name": "Gun Game",
+      "imageURL": "https://i.imgur.com/yTkbKxL.png"
+    },
+    {
+      "name": "Hardpoint",
+      "imageURL": "https://i.imgur.com/89Kk9Q9.png"
+    },
+    {
+      "name": "Headquarters",
+      "imageURL": "https://i.imgur.com/QYrjc5y.png"
+    },
+    {
+      "name": "Infected",
+      "imageURL": "https://i.imgur.com/0G1nQaX.png"
+    },
+    {
+      "name": "Invasion",
+      "imageURL": "https://i.imgur.com/aivO24B.png"
+    },
+    {
+      "name": "Kill Confirmed",
+      "imageURL": "https://i.imgur.com/W5f31nz.png"
+    },
+    {
+      "name": "Knock Out",
+      "imageURL": "https://i.imgur.com/1bI39no.png"
+    },
+    {
+      "name": "One in the Chamber",
+      "imageURL": "https://i.imgur.com/tAxwe4T.png"
+    },
+    {
+      "name": "Prisoner Rescue",
+      "imageURL": "https://i.imgur.com/uP9mnQd.png"
+    },
+    {
+      "name": "Ranked Play",
+      "imageURL": "https://i.imgur.com/7aVMq5i.png"
+    },
+    {
+      "name": "Search and Destroy",
+      "imageURL": "https://i.imgur.com/5XaiMtR.png"
+    },
+    {
+      "name": "Team Deathmatch",
+      "imageURL": "https://i.imgur.com/49IH4f2.png"
+    },
+    {
+      "name": "Warzone",
+      "imageURL": "https://i.imgur.com/NLX5Mot.png"
+    }
+  ],
+  "cover": "https://i.imgur.com/wnTF07B.jpg",
+  "logo": "https://i.imgur.com/V7VjScO.png"
 }
