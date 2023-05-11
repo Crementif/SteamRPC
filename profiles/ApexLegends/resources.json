@@ -1,0 +1,61 @@
+{
+    "maps": [
+        {
+            "name": "Training",
+            "imageURL": "https://i.imgur.com/omlExSE.png"
+        },
+        {
+            "name": "Firing Range",
+            "imageURL": "https://i.imgur.com/3njWDWU.png"
+        },
+        {
+            "name": "Caustic Treatment",
+            "imageURL": "https://i.imgur.com/3GkYRBH.png"
+        },
+        {
+            "name": "Habitat 4",
+            "imageURL": "https://i.imgur.com/mqxSBup.png"
+        },
+        {
+            "name": "Hammond Labs",
+            "imageURL": "https://i.imgur.com/jDvMDh8.png"
+        },
+        {
+            "name": "Skull Town",
+            "imageURL": "https://i.imgur.com/zpkLxJE.png"
+        },
+        {
+            "name": "Broken Moon",
+            "imageURL": "https://i.imgur.com/ffPoKOX.png"
+        },
+        {
+            "name": "Kings Canyon",
+            "imageURL": "https://i.imgur.com/Vk73vWT.png"
+        },
+        {
+            "name": "Olympus",
+            "imageURL": "https://i.imgur.com/VjQLOlk.png"
+        },
+        {
+            "name": "Storm Point",
+            "imageURL": "https://i.imgur.com/bo9ngZ7.png"
+        },
+        {
+            "name": "World's Edge",
+            "imageURL": "https://i.imgur.com/PAzDsDq.png"
+        },
+        {
+            "name": "Phase Runner",
+            "imageURL": "https://i.imgur.com/I6mWvs5.png"
+        },
+        {
+            "name": "Party Crasher",
+            "imageURL": "https://i.imgur.com/dph1Hur.png"
+        },
+        {
+            "name": "Overflow",
+            "imageURL": "https://i.imgur.com/bPde7jR.png"
+        },
+    ],
+    "cover": "https://i.imgur.com/Th1Pq81.png"
+}
