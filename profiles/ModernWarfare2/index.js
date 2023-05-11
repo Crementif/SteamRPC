@@ -16,7 +16,6 @@ export function translateSteamPresence(steamRichPresence) {
         discordRichPresence.state = steamRichPresence;
 
         if(!fs.existsSync(dir + '/resources.json')) {
-            discordRichPresence.state = "no";
             return discordRichPresence;
         }
 
@@ -28,13 +27,16 @@ export function translateSteamPresence(steamRichPresence) {
             let mode = resources.modes.find(e => e.name === match[1]);
             let map = resources.maps.find(e => e.name === match[2]);
 
-            if(mode !== undefined || map !== undefined) {
-                // set game mode
-                discordRichPresence.smallImageKey = mode.imageURL;
-                discordRichPresence.smallImageText = match[1];
+            if(map !== undefined) {
                 //set map
                 discordRichPresence.largeImageKey = map.imageURL;
                 discordRichPresence.largeImageText = match[2];
+
+                if(mode !== undefined) {
+                    // set game mode
+                    discordRichPresence.smallImageKey = mode.imageURL;
+                    discordRichPresence.smallImageText = match[1];
+                }
             }
         }
 
