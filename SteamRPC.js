@@ -1,4 +1,5 @@
 import { readdir } from "node:fs/promises";
+import fs from 'fs';
 
 import DiscordRPC from "@xhayper/discord-rpc";
 import SteamID from "steamid";
@@ -11,7 +12,7 @@ import LogUpdate from "log-update";
 
 // You'll need to find your own SteamID64 URL using https://steamrep.com
 // Note: This also allows custom URLs like https://steamcommunity.com/id/crementif but they require providing a valid web key.
-const steamProfileURL = "https://steamcommunity.com/profiles/76561198259089872";
+const steamProfileURL = "https://steamcommunity.com/profiles/76561198034348102";
 
 // ONLY needs to be replaced if you use a custom URL in the steamProfileURL variable above. There's no real benefit!
 // You can get one from https://steamcommunity.com/dev/apikey. Use localhost as the domain name.
@@ -64,7 +65,7 @@ function renderWindow() {
 
 // =================================================================
 // SteamRPC Logic
- 
+
 async function getSteamUserId() {
     if (steamProfileURL.startsWith("https://steamcommunity.com/id/")) {
         let res = await fetch(`https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?key=${steamWebKey}&vanityurl=${steamProfileURL.split("id/")[1].split("/")[0]}`);
@@ -78,6 +79,14 @@ async function getSteamUserId() {
     }
 }
 
+async function updateResources(folder, appID) {
+    let res = await fetch(`https://raw.githubusercontent.com/Crementif/SteamRPC/master/profiles/${folder}/resources.json`);
+    if (res.ok) {
+        let resJson = await res.json();
+        fs.writeFileSync(`./profiles/${folder}/resources.json`, JSON.stringify(resJson));
+    }
+}
+
 async function loadProfiles() {
     let profiles = {};
 
@@ -88,8 +97,9 @@ async function loadProfiles() {
             if (typeof profile.title != "string") throw "Exported 'title' couldn't be found or isn't a valid string type!";
             if (typeof profile.appID != "number") throw "Exported 'appID' couldn't be found or isn't a valid number type!";
             if (typeof profile.translateSteamPresence != "function") throw "Exported 'translateSteamPresence' function couldn't be found or isn't a valid function type!";
-            
             if (profiles.hasOwnProperty(profile.appID)) throw `Found two profiles that export the same appID ${profile.appID}! Make sure to change the appID variable in each profile!`;
+
+            updateResources(folder, profile.appID);
             profiles[profile.appID] = profile;
         }
         catch (err) {
