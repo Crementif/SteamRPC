@@ -11,7 +11,7 @@ import LogUpdate from "log-update";
 
 // You'll need to find your own SteamID64 URL using https://steamrep.com
 // Note: This also allows custom URLs like https://steamcommunity.com/id/crementif but they require providing a valid web key.
-const steamProfileURL = "https://steamcommunity.com/profiles/76561198034348102";
+const steamProfileURL = "https://steamcommunity.com/profiles/76561198259089872";
 
 // ONLY needs to be replaced if you use a custom URL in the steamProfileURL variable above. There's no real benefit!
 // You can get one from https://steamcommunity.com/dev/apikey. Use localhost as the domain name.
