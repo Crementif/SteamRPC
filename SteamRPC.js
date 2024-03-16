@@ -14,6 +14,7 @@ let gameStatus = "";
 let discordStatus = "waiting for supported game...";
 let steamStatus = "obtaining user id";
 let debugLine = "";
+let version = "1.0";
 
 // Initialize Discord Objects
 var discordRPCClient = null;
@@ -147,6 +148,7 @@ async function pollSteamPresence(steamUserId, profiles) {
                                 lastTimestamp = null;
                             }
 
+                            translatedDiscordRPC.largeImageText = `SteamRPC - v${version}`;
                             discordRPCClient.user?.setActivity(translatedDiscordRPC);
                         }
                         catch (codeErr) {
