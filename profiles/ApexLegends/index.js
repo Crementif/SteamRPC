@@ -8,74 +8,74 @@ const resources = {
     "maps": [
         {
             "name": "Training",
-            "imageURL": "https://i.postimg.cc/Hk30q0cv/3-oml-Ex-SE-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/training.png"
         },
         {
             "name": "Firing Range",
-            "imageURL": "https://i.postimg.cc/C5jkmbpN/2-3nj-WDWU-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/firing-range.png"
         },
         {
             "name": "Caustic Treatment",
-            "imageURL": "https://i.postimg.cc/xjHvfVNz/4-3-Gk-YRBH-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/caustic-treatment.png"
         },
         {
             "name": "Habitat 4",
-            "imageURL": "https://i.postimg.cc/pLVzJ9Gf/5-mqx-SBup-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/habitat-4.png"
         },
         {
             "name": "Hammond Labs",
-            "imageURL": "https://i.postimg.cc/50QwQZPD/6-j-Dv-MDh8-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/hammond-labs.png"
         },
         {
             "name": "Skull Town",
-            "imageURL": "https://i.postimg.cc/XqM9fQmq/7-zpk-Lx-JE-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/skull-town.png"
         },
         {
             "name": "Broken Moon",
-            "imageURL": "https://i.postimg.cc/bNhQdV1F/8-ff-Po-KOX-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/broken-moon.png"
         },
         {
             "name": "Kings Canyon",
-            "imageURL": "https://i.postimg.cc/bN91n0TY/9-Vk73v-WT-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/kings-canyon.png"
         },
         {
             "name": "Olympus",
-            "imageURL": "https://i.postimg.cc/LsXk2qj9/10-Vj-QLOlk-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/olympus.png"
         },
         {
             "name": "Storm Point",
-            "imageURL": "https://i.postimg.cc/3xLpSKVP/11-bo9ng-Z7-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/storm-point.png"
         },
         {
             "name": "World's Edge",
-            "imageURL": "https://i.postimg.cc/85v6zLcS/12-PAz-Ds-Dq-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/worlds-edge.png"
         },
         {
             "name": "Phase Runner",
-            "imageURL": "https://i.postimg.cc/tRh60d8d/13-I6m-Wvs5-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/phase-runner.png"
         },
         {
             "name": "Party Crasher",
-            "imageURL": "https://i.postimg.cc/WzPJFtqJ/14-dph1-Hur-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/party-crasher.png"
         },
         {
             "name": "Overflow",
-            "imageURL": "https://i.postimg.cc/L621mYMc/15-b-Pde7j-R-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/overflow.png"
         },
         {
             "name": "Estates",
-            "imageURL": "https://i.postimg.cc/MHbfyx13/16-9g2-C2-AC-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/estates.png"
         },
         {
             "name": "Lava Siphon",
-            "imageURL": "https://i.postimg.cc/7Y9ThHHf/17-QOBOuv-Z-Custom.png"
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/lava-siphon.png"
         },
         {
             "name": "Fragment East",
-            "imageURL": ""
+            "imageURL": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/fragment-east.png"
         }
     ],
-    "cover": "https://i.postimg.cc/pLPYccTn/1-Th1-Pq81-Custom.png"
+    "cover": "https://raw.githubusercontent.com/angelolz/SteamRPC/apex2/profiles/ApexLegends/resources/game-icon.png"
 };
 
 export function translateSteamPresence(steamRichPresence) {
