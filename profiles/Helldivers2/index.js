@@ -3,10 +3,10 @@ export const appID = 553850;
 export const title = "HELLDIVERS™ 2";
 
 const resources = {
-    "cover": "https://i.postimg.cc/prsvT0Zj/community-Icon-ql5iyxjfuvic1.jpg",
+    "cover": "https://raw.githubusercontent.com/angelolz/SteamRPC/helldivers2/profiles/Helldivers2/resources/game_icon.jpg",
     "icons": {
-        "automatons": "https://i.postimg.cc/d3wdv0H1/Automatonlogo2.webp",
-        "terminids": "https://i.postimg.cc/4dztrc1q/Terminidlogo2.webp"
+        "automatons": "https://raw.githubusercontent.com/angelolz/SteamRPC/helldivers2/profiles/Helldivers2/resources/automaton_icon.png",
+        "terminids": "https://raw.githubusercontent.com/angelolz/SteamRPC/helldivers2/profiles/Helldivers2/resources/terminid_icon.png"
     }
 };
 
