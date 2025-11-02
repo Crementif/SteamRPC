@@ -5,45 +5,42 @@ import SteamID from "steamid";
 import fetch from "node-fetch";
 import LogUpdate from "log-update";
 
+import config from "./config.js";
 
-// ==================== Configuration Settings =====================
-// Steam user identification
-
-// You'll need to find your own SteamID64 URL using https://steamrep.com
-// Note: This also allows custom URLs like https://steamcommunity.com/id/crementif but they require providing a valid web key.
-const steamProfileURL = "https://steamcommunity.com/profiles/76561198259089872";
-
-// ONLY needs to be replaced if you use a custom URL in the steamProfileURL variable above. There's no real benefit!
-// You can get one from https://steamcommunity.com/dev/apikey. Use localhost as the domain name.
-const steamWebKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-
-// Advanced Configuration Settings
-const pollRate = 20*1000; // Poll Steam Rich Presence every n seconds. You should keep this at or above 20 seconds.
-const discordClientId = "433731243516100629"; // Keep this id unless you want to supply your own application id.
 
 // =================================================================
 // Initialize Status Variables
 let gameStatus = "";
-let discordStatus = "logging in";
+let discordStatus = "waiting for supported game...";
 let steamStatus = "obtaining user id";
 let debugLine = "";
+let version = "1.0";
 
 // Initialize Discord Objects
-const discordRPCClient = new DiscordRPC.Client({
-    clientId: discordClientId,
-    transport: "ipc"
-});
+var discordRPCClient = null;
 
-// Setup discord RPC
-discordRPCClient.on("ready", () => {
-    discordStatus = "connected (IPC)";
-    renderWindow();
-});
+//todo let presences keep track of timestamp
+var lastTimestamp = null;
+var lastStatus;
 
-discordRPCClient.on("error", (err, message) => {
-    discordStatus = `error ${err}: ${message}`;
-    renderWindow();
-});
+function initRPC(clientId) {
+    discordRPCClient = new DiscordRPC.Client({
+        clientId: clientId,
+        transport: "ipc"
+    });
+
+    discordRPCClient.on("ready", () => {
+        discordStatus = "connected (IPC) | clientId: " + clientId;
+        renderWindow();
+    });
+    
+    discordRPCClient.on("error", (err, message) => {
+        discordStatus = `error ${err}: ${message}`;
+        renderWindow();
+    });
+
+    discordRPCClient.login();
+}
 
 // =================================================================
 // Logging
@@ -55,7 +52,7 @@ function renderWindow() {
 
     LogUpdate(
         `Steam: ${!steamStatus.startsWith("connected") ? steamStatus+spinFrames[currSpinFrame] : steamStatus}\n` +
-        `Discord: ${discordStatus+(discordStatus!=="connected (IPC)" ? " "+spinFrames[currSpinFrame] : "")}\n` +
+        `Discord: ${discordStatus + (discordStatus.startsWith("connected") ? "" : " " + spinFrames[currSpinFrame])}\n` +
         `Game: ${gameStatus}\n` +
         `\n` +
         `> ${debugLine}\n`
@@ -66,15 +63,15 @@ function renderWindow() {
 // SteamRPC Logic
  
 async function getSteamUserId() {
-    if (steamProfileURL.startsWith("https://steamcommunity.com/id/")) {
-        let res = await fetch(`https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?key=${steamWebKey}&vanityurl=${steamProfileURL.split("id/")[1].split("/")[0]}`);
+    if (config.steam_profile_url.startsWith("https://steamcommunity.com/id/")) {
+        let res = await fetch(`https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?key=${config.steam_web_key}&vanityurl=${config.steam_profile_url.split("id/")[1].split("/")[0]}`);
         if (res.ok) {
             let resJson = await res.json();
             if (resJson.response.success == 1) return new SteamID(resJson.response.steamid);
         }
     }
-    else if (steamProfileURL.startsWith("https://steamcommunity.com/profiles/")) {
-        return new SteamID(steamProfileURL.split("profiles/")[1].split("/")[0]);
+    else if (config.steam_profile_url.startsWith("https://steamcommunity.com/profiles/")) {
+        return new SteamID(config.steam_profile_url.split("profiles/")[1].split("/")[0]);
     }
 }
 
@@ -110,23 +107,62 @@ async function pollSteamPresence(steamUserId, profiles) {
         gameStatus = "";
         let resJson = await res.json();
         if (resJson.in_game) {
-            gameStatus = `${resJson.in_game.name} (not supported)`;
-            if (resJson.in_game?.logo && resJson.in_game?.rich_presence) {
-                let curr_appid = resJson.in_game.logo.split("/apps/")[1].split("/")[0];
-                let curr_rpc = resJson.in_game.rich_presence;
-                debugLine = "Current Steam RPC Status: " + resJson.in_game.rich_presence;
-                if (profiles.hasOwnProperty(curr_appid)) {
-                    let profile = profiles[curr_appid];
-                    try {
-                        gameStatus = profile.title;
-                        let translatedDiscordRPC = profile.translateSteamPresence(curr_rpc);
-                        if (typeof translatedDiscordRPC !== "object") throw `Profile returned '${typeof translatedDiscordRPC}' instead of an object.`;
-                        discordRPCClient.user?.setActivity(translatedDiscordRPC);
-                    }
-                    catch (codeErr) {
-                        throw new Error(`A code error has occured in the game profile for '${profile.title}'!`, {cause: codeErr});
+            gameStatus = resJson.in_game.name;
+
+            if(resJson.in_game?.rich_presence === "")
+                debugLine = "There is no RPC status for this game.";
+            else {
+                if (resJson.in_game?.logo && resJson.in_game?.rich_presence) {
+                    let currentAppId = resJson.in_game.logo.split("/apps/")[1].split("/")[0];
+                    let currentSteamStatus = resJson.in_game.rich_presence;
+                    debugLine = "Current Steam RPC Status: " + resJson.in_game.rich_presence;
+
+                    if (profiles.hasOwnProperty(currentAppId)) {
+                        let profile = profiles[currentAppId];
+                        try {
+                            gameStatus = profile.title;
+                            let clientId;
+
+                            if(profile.clientId !== undefined)
+                                clientId = profile.clientId;
+                            else
+                                clientId = config.default_client_id;
+    
+                            if(discordRPCClient === null) 
+                                initRPC(clientId);
+                            else if(discordRPCClient.clientId !== clientId) {
+                                discordRPCClient.login({clientId});
+                            }
+    
+                            let translatedDiscordRPC = profile.translateSteamPresence(currentSteamStatus, discordRPCClient);
+
+                            if (typeof translatedDiscordRPC !== "object") 
+                                throw `Profile returned '${typeof translatedDiscordRPC}' instead of an object.`;
+    
+                            if(translatedDiscordRPC.startTimestamp) {
+                                if(lastTimestamp !== null) translatedDiscordRPC.startTimestamp = lastTimestamp;
+                                else lastTimestamp = translatedDiscordRPC.startTimestamp;
+                            }
+
+                            else {
+                                lastTimestamp = null;
+                            }
+
+                            translatedDiscordRPC.largeImageText = `SteamRPC - v${version}`;
+                            discordRPCClient.user?.setActivity(translatedDiscordRPC);
+                        }
+                        catch (codeErr) {
+                            throw new Error(`A code error has occured in the game profile for '${profile.title}'!`, {cause: codeErr});
+                        }
                     }
                 }
+            }
+        }
+
+        else {
+            if(discordRPCClient !== null) {
+                discordRPCClient.destroy();
+                discordRPCClient = null;
             }
         }
     }
@@ -154,6 +190,4 @@ steamStatus = `Using Steam User ID ${steamUserId.getSteamID64()}`;
 
 renderWindow();
 pollSteamPresence(steamUserId, profiles);
-setInterval(pollSteamPresence, pollRate, steamUserId, profiles);
-
-discordRPCClient.login();
+setInterval(pollSteamPresence, config.poll_rate, steamUserId, profiles);
